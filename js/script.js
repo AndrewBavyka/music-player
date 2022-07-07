@@ -21,7 +21,7 @@ let musicIndex = 1;
 window.addEventListener("load", () => {
     loadMusic(musicIndex);
     playingSong();
-    volumeMusic();
+    changeVolumeMusic();
 });
 
 let loadMusic = (indexNum) => {
@@ -228,10 +228,11 @@ function clicked(element) {
     playingSong();
 }
 
-function volumeMusic() {
+function changeVolumeMusic() {
     let audio = mainAudio;
     let volume = document.querySelector("#volume-control");
-    volume.addEventListener("change", function (e) {
+
+    volume.addEventListener("input", function (e) {
         audio.volume = e.currentTarget.value / 100;
     });
 }
